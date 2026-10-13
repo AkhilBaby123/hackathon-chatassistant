@@ -1,0 +1,8 @@
+docker run -p 4000:4000 \
+    -p 15432:15432 \
+    --env-file .env \
+    -v /Users/treesasj/hackathon/sa.json:/tmp/sa.json \
+    -e GOOGLE_APPLICATION_CREDENTIALS="/tmp/sa.json" \
+    -v ${PWD}:/cube/conf \
+    -e CUBEJS_DEV_MODE=true \
+    cubejs/cube

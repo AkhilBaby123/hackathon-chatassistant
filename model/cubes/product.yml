@@ -1,0 +1,61 @@
+cubes:
+  - name: product
+    sql_table: sales_serving.product
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: corporate_brand_rk
+        sql: corporate_brand_rk
+        type: string
+
+      - name: garment_group_name
+        sql: garment_group_name
+        type: string
+
+      - name: index_name
+        sql: index_name
+        type: string
+
+      - name: product_code
+        sql: product_code
+        type: string
+
+      - name: product_description
+        sql: product_description
+        type: string
+
+      - name: product_name
+        sql: product_name
+        type: string
+
+      - name: product_rk
+        sql: product_rk
+        type: string
+        primary_key: true
+
+      - name: product_rk_clr
+        sql: product_rk_clr
+        type: string
+
+      - name: product_season_rk
+        sql: product_season_rk
+        type: string
+
+      - name: product_status
+        sql: product_status
+        type: string
+
+      - name: sub_index_name
+        sql: sub_index_name
+        type: string
+
+    measures:
+      - name: product_count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

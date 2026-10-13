@@ -1,0 +1,273 @@
+cubes:
+  - name: receipt_row
+    sql_table: sales_serving.receipt_row
+    data_source: default
+
+    joins: 
+      - name: receipt 
+        sql: "{CUBE}.receipt_rk = {receipt}.receipt_rk"
+        relationship: many_to_one
+      - name: product
+        sql: "{CUBE}.product_rk = {product}.product_rk"
+        relationship: many_to_one
+      - name: article
+        sql: "{CUBE}.article_rk = {article}.article_rk"
+        relationship: many_to_one
+
+    dimensions:
+      - name: article_rk
+        sql: article_rk
+        type: string
+
+      - name: article_rk_clr
+        sql: article_rk_clr
+        type: string
+
+      - name: claim_code_desc
+        sql: claim_code_desc
+        type: string
+
+      - name: claim_code_rk
+        sql: claim_code_rk
+        type: string
+
+      - name: corporate_brand_rk
+        sql: corporate_brand_rk
+        type: string
+
+      - name: country_rk
+        sql: country_rk
+        type: string
+
+      - name: currency_rk
+        sql: currency_rk
+        type: string
+
+      - name: customer_return_flag
+        sql: customer_return_flag
+        type: string
+
+      - name: department_corporate_brand_rk
+        sql: department_corporate_brand_rk
+        type: string
+
+
+      - name: entry_method
+        sql: entry_method
+        type: string
+
+      - name: exempt_tax_amount
+        sql: exempt_tax_amount
+        type: string
+
+      - name: is_cross_brand
+        sql: is_cross_brand
+        type: string
+
+      - name: is_online_return_flag
+        sql: is_online_return_flag
+        type: string
+
+      - name: is_vat_included_in_net
+        sql: is_vat_included_in_net
+        type: string
+
+      - name: item_code
+        sql: item_code
+        type: string
+
+      - name: item_type
+        sql: item_type
+        type: string
+
+      - name: location_rk
+        sql: location_rk
+        type: string
+
+      - name: online_sales_order_code
+        sql: online_sales_order_code
+        type: string
+
+      - name: org_location_rk
+        sql: org_location_rk
+        type: string
+
+      - name: org_receipt_no
+        sql: org_receipt_no
+        type: string
+
+      - name: org_till_no
+        sql: org_till_no
+        type: string
+
+      - name: oris3_info
+        sql: oris3_info
+        type: string
+
+      - name: pos_identity
+        sql: pos_identity
+        type: string
+
+      - name: product_price_type_rk
+        sql: product_price_type_rk
+        type: string
+
+      - name: product_rk
+        sql: product_rk
+        type: string
+
+      - name: product_rk_clr
+        sql: product_rk_clr
+        type: string
+
+      - name: product_season_rk
+        sql: product_season_rk
+        type: string
+
+      - name: receipt_no
+        sql: receipt_no
+        type: string
+
+      - name: receipt_rk
+        sql: receipt_rk
+        type: string
+
+      - name: receipt_row_rk
+        sql: receipt_row_rk
+        type: string
+        primary_key: true
+
+      - name: retail_price_modifier
+        sql: retail_price_modifier
+        type: string
+
+      - name: sales_transaction_type
+        sql: sales_transaction_type
+        type: string
+
+      - name: seasonless_article_rk
+        sql: seasonless_article_rk
+        type: string
+
+      - name: seasonless_product_rk
+        sql: seasonless_product_rk
+        type: string
+
+   
+      - name: store_till_rk
+        sql: store_till_rk
+        type: string
+
+      - name: till_no
+        sql: till_no
+        type: string
+
+      - name: till_type
+        sql: till_type
+        type: string
+
+      - name: transaction_status
+        sql: transaction_status
+        type: string
+
+      - name: transaction_type
+        sql: transaction_type
+        type: string
+
+      - name: variant_rk
+        sql: variant_rk
+        type: string
+
+      - name: org_sales_date_rk
+        sql: org_sales_date_rk
+        type: time
+
+      - name: sales_date_rk
+        sql: CAST(sales_date_rk AS TIMESTAMP)
+        type: time
+
+      - name: transaction_end_timestamp
+        sql: transaction_end_timestamp
+        type: time
+
+      - name: transaction_start_timestamp
+        sql: transaction_start_timestamp
+        type: time
+
+    measures:
+      - name: receit_row_count
+        type: count
+
+      - name: discount_member_per_item_fcc
+        sql: discount_member_per_item_fcc
+        type: sum
+
+      - name: discount_other_per_item_fcc
+        sql: discount_other_per_item_fcc
+        type: sum
+
+      - name: discount_staff_per_item_fcc
+        sql: discount_staff_per_item_fcc
+        type: sum
+
+      - name: discount_total_per_item_fcc
+        sql: discount_total_per_item_fcc
+        type: sum
+
+      - name: initial_gross_price_per_item_fcc
+        sql: initial_gross_price_per_item_fcc
+        type: sum
+
+      - name: item_price_fcc
+        sql: item_price_fcc
+        type: sum
+
+      - name: item_tax_fcc
+        sql: item_tax_fcc
+        type: sum
+
+      - name: item_tax_vat_fcc
+        sql: item_tax_vat_fcc
+        type: sum
+
+      - name: net_price_per_item_fcc
+        sql: net_price_per_item_fcc
+        type: sum
+
+      - name: no_of_pcs
+        sql: no_of_pcs
+        type: sum
+
+      - name: reduction_per_item_fcc
+        sql: reduction_per_item_fcc
+        type: sum
+
+      - name: sold_disc_club_pri_fcc
+        sql: sold_disc_club_pri_fcc
+        type: sum
+
+      - name: sold_promotion_pct_fcc
+        sql: sold_promotion_pct_fcc
+        type: sum
+
+      - name: sold_promotion_pri_fcc
+        sql: sold_promotion_pri_fcc
+        type: sum
+
+      - name: theoretic_price_on_tag_fcc
+        sql: theoretic_price_on_tag_fcc
+        type: sum
+
+      - name: white_price_change_per_item_fcc
+        sql: white_price_change_per_item_fcc
+        type: sum
+
+      - name: white_price_per_item_fcc
+        sql: white_price_per_item_fcc
+        type: sum
+
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

@@ -1,0 +1,64 @@
+cubes:
+  - name: stock
+    sql_table: sales_serving.stock
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: allocated_no_of_pcs
+        sql: allocated_no_of_pcs
+        type: string
+
+      - name: article_rk
+        sql: article_rk
+        type: string
+
+      - name: channel_rk
+        sql: channel_rk
+        type: string
+
+      - name: corporate_brand_rk
+        sql: corporate_brand_rk
+        type: string
+
+      - name: hm_season_rk
+        sql: hm_season_rk
+        type: string
+
+      - name: location_rk
+        sql: location_rk
+        type: string
+
+      - name: location_type_rk
+        sql: location_type_rk
+        type: string
+
+      - name: product_rk
+        sql: product_rk
+        type: string
+
+      - name: stock_indoor_no_of_pcs
+        sql: stock_indoor_no_of_pcs
+        type: string
+
+      - name: stock_unrestricted_no_of_pcs
+        sql: stock_unrestricted_no_of_pcs
+        type: string
+
+      - name: variant_rk
+        sql: variant_rk
+        type: string
+
+      - name: stock_date
+        sql: stock_date
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

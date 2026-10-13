@@ -1,0 +1,109 @@
+cubes:
+  - name: receipt
+    sql_table: sales_serving.receipt
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: corporate_brand_rk
+        sql: corporate_brand_rk
+        type: string
+
+      - name: country_rk
+        sql: country_rk
+        type: string
+
+      - name: currency_rk
+        sql: currency_rk
+        type: string
+
+      - name: idoc_number
+        sql: idoc_number
+        type: string
+
+      - name: location_rk
+        sql: location_rk
+        type: string
+
+      - name: meta_batch_rk
+        sql: meta_batch_rk
+        type: string
+
+      - name: meta_change_by
+        sql: meta_change_by
+        type: string
+
+      - name: meta_integration_identifier
+        sql: meta_integration_identifier
+        type: string
+
+      - name: meta_integration_name
+        sql: meta_integration_name
+        type: string
+
+      - name: meta_workflow_name
+        sql: meta_workflow_name
+        type: string
+
+      - name: receipt_no
+        sql: receipt_no
+        type: string
+
+      - name: receipt_rk
+        sql: receipt_rk
+        type: string
+        primary_key: true
+
+      - name: till_no
+        sql: till_no
+        type: string
+
+      - name: till_type
+        sql: till_type
+        type: string
+
+      - name: transaction_status
+        sql: transaction_status
+        type: string
+
+      - name: transaction_type
+        sql: transaction_type
+        type: string
+
+      - name: transaction_utc_offset
+        sql: transaction_utc_offset
+        type: string
+
+      - name: meta_change_timestamp
+        sql: meta_change_timestamp
+        type: time
+
+      - name: meta_change_timestamp_sadp
+        sql: meta_change_timestamp_sadp
+        type: time
+
+      - name: receipt_customer
+        sql: receipt_customer
+        type: time
+
+      - name: sales_date_rk
+        sql: CAST(sales_date_rk AS TIMESTAMP)
+        type: time
+
+      - name: transaction_end_timestamp
+        sql: transaction_end_timestamp
+        type: time
+
+      - name: transaction_start_timestamp
+        sql: transaction_start_timestamp
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

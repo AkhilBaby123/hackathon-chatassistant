@@ -1,0 +1,52 @@
+cubes:
+  - name: article
+    sql_table: sales_serving.article
+    data_source: default
+
+    joins: 
+      - name: product
+        sql: "{CUBE}.product_rk = {product}.product_rk"
+        relationship: many_to_one
+
+    dimensions:
+      - name: article_code
+        sql: article_code
+        type: string
+
+      - name: article_desc
+        sql: article_desc
+        type: string
+
+      - name: article_rk
+        sql: article_rk
+        type: string
+        primary_key: true
+
+      - name: article_rk_clr
+        sql: article_rk_clr
+        type: string
+
+      - name: article_status
+        sql: article_status
+        type: string
+
+      - name: product_code
+        sql: product_code
+        type: string
+
+      - name: product_rk
+        sql: product_rk
+        type: string
+
+      - name: product_season_rk
+        sql: product_season_rk
+        type: string
+
+    measures:
+      - name: article_count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+
