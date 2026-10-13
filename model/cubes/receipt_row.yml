@@ -195,7 +195,7 @@ cubes:
         type: time
 
     measures:
-      - name: receit_row_count
+      - name: receipt_row_count
         type: count
 
       - name: discount_member_per_item_fcc
@@ -265,9 +265,30 @@ cubes:
       - name: white_price_per_item_fcc
         sql: white_price_per_item_fcc
         type: sum
+      
+      - name: total_tax_fcc
+        sql: COALESCE({CUBE}.item_tax_fcc, 0) + COALESCE({CUBE}.item_tax_vat_fcc, 0)
+        type: sum
+        title: "Total Tax"
 
 
     pre_aggregations:
-      # Pre-aggregation definitions go here.
-      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+      # 1. Sales summary per country
+      - name: daily_sales_summary
+        measures:
+          - receipt_row_count
+          - no_of_pcs
+          - white_price_per_item_fcc
+          - net_price_per_item_fcc
+          - reduction_per_item_fcc
+          - discount_total_per_item_fcc
+          - discount_member_per_item_fcc
+          - total_tax_fcc
+        dimensions:
+          - country_rk
+          - corporate_brand_rk
+        time_dimension: sales_date_rk
+        granularity: day
+        partition_granularity: month
+
 
