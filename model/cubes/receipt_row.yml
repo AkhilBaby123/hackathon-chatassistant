@@ -290,5 +290,25 @@ cubes:
         time_dimension: sales_date_rk
         granularity: day
         partition_granularity: month
+# Location & Store Performance
+      - name: sales_by_location
+        measures:
+          - receit_row_count
+          - no_of_pcs
+          - net_price_per_item_fcc
+          - total_tax_fcc                 
+          - reduction_per_item_fcc
+          - discount_total_per_item_fcc
+          - discount_member_per_item_fcc          
+        dimensions:
+          - location_rk
+          - country_rk          
+          - corporate_brand_rk 
+        time_dimension: sales_date_rk
+        granularity: day
+        partition_granularity: month
 
 
+  # TODO
+  # Return cost
+  # Promotional analysis. - want to check how much selling happened using a prmotion       
