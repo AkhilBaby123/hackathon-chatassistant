@@ -5,8 +5,7 @@ import sys
 
 def _fetch_live_cube_meta() -> Optional[str]:
         base_url = "http://localhost:4000/cubejs-api/v1"
-        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZWN1cml0eUNvbnRleHQiOnsidXNlcklkIjoidGVzdF91c2VyXzEiLCJkZXBhcnRtZW50Ijoic2FsZXMifSwiZXhwIjoxOTAwMDAwMDAwfQ.NCk88HSC-Yi6lnCv1uhZm6xAlZVX_K5kLxQOcco8GFo"
-        
+        # token = "# Add API token here"
         try:
             response = requests.get(f"{base_url}/meta", headers={"Authorization": token})
             response.raise_for_status()
