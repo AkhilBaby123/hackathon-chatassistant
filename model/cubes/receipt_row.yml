@@ -293,7 +293,7 @@ cubes:
 # Location & Store Performance
       - name: sales_by_location
         measures:
-          - receit_row_count
+          - receipt_row_count
           - no_of_pcs
           - net_price_per_item_fcc
           - total_tax_fcc                 
